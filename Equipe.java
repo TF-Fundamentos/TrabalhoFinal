@@ -10,7 +10,7 @@ public class Equipe {
     public Equipe(){
         this.nome = "";
         this.tag = "";
-        this.jogadores = new Jogador[5];
+        this.jogadores = new Jogador[4];
     }
     public String getNome() {
         return nome;

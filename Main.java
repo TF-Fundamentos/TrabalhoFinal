@@ -16,13 +16,12 @@ public class Main{
         switch (opcao1) {
             case 1:
                 System.out.print("Digite o nome e a tag da equipe: ");
-                Equipe equipe = new Equipe(scanner.next(), scanner.next(), null);
+                Equipe equipe = new Equipe(scanner.next(), scanner.next(), new Jogador[0]);
                 System.out.println("Equipe " + equipe.getNome() + " cadastrada com sucesso!");
                 System.out.println("Cadastro de jogadores para a equipe " + equipe.getNome());
-                System.out.print("Digite o nome e oagente do jogador: ");
+                System.out.print("Digite o nome e o agente do jogador: ");
                 Jogador jogador1 = new Jogador(scanner.next(), new Agente[0], 0, 0, 0, 0);
                 System.out.println("Jogador " + jogador1.getNickname() + " cadastrado com sucesso na equipe " + equipe.getNome());
-
                 break;
             case 2:
                 System.out.println("Ver estatísticas de jogador");
