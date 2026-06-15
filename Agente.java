@@ -6,7 +6,7 @@ public class Agente {
 
     public Agente(String nome, String funcao, String habilidadeUltimate, double custoUltimate) {
         this.nome = nome;
-        this.fucao = funcao;
+        this.funcao = funcao;
         this.habilidadeUltimate = habilidadeUltimate;
         this.custoUltimate = custoUltimate;
     }
