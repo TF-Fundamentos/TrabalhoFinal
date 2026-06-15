@@ -20,7 +20,7 @@ public class Main{
                 System.out.println("Equipe " + equipe.getNome() + " cadastrada com sucesso!");
                 System.out.println("Cadastro de jogadores para a equipe " + equipe.getNome());
                 System.out.print("Digite o nome e oagente do jogador: ");
-                Jogador jogador1 = new Jogador(scanner.next(), scanner.next(), 0, 0, 0, 0);
+                Jogador jogador1 = new Jogador(scanner.next(), new Agente[0], 0, 0, 0, 0);
                 System.out.println("Jogador " + jogador1.getNickname() + " cadastrado com sucesso na equipe " + equipe.getNome());
 
                 break;

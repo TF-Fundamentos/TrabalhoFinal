@@ -1,13 +1,13 @@
 public class Jogador{
     private String nickname;
-    private String agente;
+    private Agente[] agentes;
     private int kills;
     private int mortes;
     private int assistencias;
     private double kda;
-    public Jogador(String nickname, String agente, int kills, int mortes, int assistencias, double kda) {
+    public Jogador(String nickname, Agente[] agentes, int kills, int mortes, int assistencias, double kda) {
         this.nickname = nickname;
-        this.agente = agente;
+        this.agentes = agentes;
         this.kills = kills;
         this.mortes = mortes;
         this.assistencias = assistencias;
@@ -15,7 +15,7 @@ public class Jogador{
     }
     public Jogador(){
         this.nickname = "";
-        this.agente = "";
+        this.agentes = new Agente[0];
         this.kills = 0;
         this.mortes = 0;
         this.assistencias = 0;
@@ -24,8 +24,8 @@ public class Jogador{
     public String getNickname() {
         return nickname;
     }
-    public String getAgente() {
-        return agente;
+    public Agente[] getAgentes() {
+        return agentes;
     }
     public int getKills() {
         return kills;
