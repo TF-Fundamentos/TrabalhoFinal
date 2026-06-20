@@ -14,7 +14,8 @@ public class Jogador{
         this.kills = kills;
         this.mortes = mortes;
         this.assistencias = assistencias;
-        this.kda = kda;
+        this.kda = (kills+assistencias)/(mortes+1);
+        //aqui já define o cálculo para kda, somando 1 para mortes, assim evitando divisao p/0
     }
 
     public Jogador(){
@@ -53,6 +54,6 @@ public class Jogador{
 
     @Override
     public String toString(){
-        return "Nickname: " + nickname + ", Agente: " + agente + ", Kills" +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
+        return "Nickname: " + nickname + ", Agente: " + agente + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
     }
 }
