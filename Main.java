@@ -9,8 +9,8 @@ public class Main{
         int opcao = 0;//Var. 1 switch
         int opcaoCase2 = 0;//Var. 2 switch
         
-        Equipe equipe []= new Equipe[1]; //numero temporario
-        Jogador jogador[] = new Jogador[1];//numero temporario
+        Equipe equipe []= new Equipe[2]; //numero temporario
+        Jogador jogador[] = new Jogador[4];//numero temporario
        
         
         
@@ -21,7 +21,7 @@ public class Main{
         System.out.println("3. ver próxima partida");
         System.out.println("4. sair");
          opcao = scanner.nextInt();
-
+            
             switch (opcao) {
             case 1:
                 for (int i = 0; i < equipe.length; i++){
@@ -30,19 +30,23 @@ public class Main{
                 
                 System.out.println("Equipe " + equipe[i].getNome() + " cadastrada com sucesso!");
                 
-
+                //for que cadastra os jogadores, dentro de for equipe pq ccada equipe tem seus jogadores.
+                for (int j = 0; j < (jogador.length)/2; j++){
                 System.out.println("Cadastro de jogadores para a equipe " + equipe[i].getNome());
+                 int indice = (i *(jogador.length)/2 ) + j;
 
                 System.out.println("Digite o nickname e o agente do jogador: ");
-                    jogador[i] = new Jogador(scanner.next(), scanner.next(), 0, 0, 0, 0.0);
-                
+                    jogador [indice] = new Jogador(scanner.next(), scanner.next(), 0, 0, 0, 0.0);
+               
+
                 //Possivelmente temporario, para testar o cadastro de kills, mortes e assistências. E funcionar o ToString do jogador[].    
-                System.out.printf("Digite o número de kills, mortes e assistências do jogador %s: ", jogador[i].getNickname());
-                    jogador[i] = new Jogador(jogador[i].getNickname(), jogador[i].getAgente(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), 0.0);
-                
-                System.out.println("Jogador " + jogador[i].getNickname() + " cadastrado com sucesso na equipe " + equipe[i].getNome());
-                
-                }//fim do for
+                System.out.printf("Digite o número de kills, mortes e assistências do jogador %s: ", jogador[indice].getNickname());
+                     jogador[indice] = new Jogador(jogador[indice].getNickname(), jogador[indice].getAgente(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), 0.0);
+               
+
+                System.out.println("Jogador " + jogador[indice].getNickname() + " cadastrado com sucesso na equipe " + equipe[i].getNome());
+                }//fim do for jogaodor
+                }//fim do for equipe
                 break;
 
             case 2:
