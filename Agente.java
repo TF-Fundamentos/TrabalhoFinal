@@ -4,6 +4,7 @@ public class Agente {
     private String habilidadeUltimate;
     private int custoUltimate;
 
+    //Construtor padrão (com parâmetros)
     public Agente(String nome, String funcao, String habilidadeUltimate, int custoUltimate) {
         this.nome = nome;
         this.funcao = funcao;
@@ -11,6 +12,7 @@ public class Agente {
         this.custoUltimate = custoUltimate;
     }
 
+    //Construtor padrão (sem parâmetros)
     public Agente() {
         this.nome = "Desconhecido";
         this.funcao = "Desconhecida";
@@ -18,6 +20,7 @@ public class Agente {
         this.custoUltimate = 0;
     }
 
+    //Métodos (getters)
     public String getNome() {
         return nome;
     }
