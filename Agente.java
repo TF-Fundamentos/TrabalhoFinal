@@ -2,9 +2,9 @@ public class Agente {
     private String nome;
     private String funcao;
     private String habilidadeUltimate;
-    private double custoUltimate;
+    private int custoUltimate;
 
-    public Agente(String nome, String funcao, String habilidadeUltimate, double custoUltimate) {
+    public Agente(String nome, String funcao, String habilidadeUltimate, int custoUltimate) {
         this.nome = nome;
         this.funcao = funcao;
         this.habilidadeUltimate = habilidadeUltimate;
@@ -15,7 +15,7 @@ public class Agente {
         this.nome = "Desconhecido";
         this.funcao = "Desconhecida";
         this.habilidadeUltimate = "Desconhecida";
-        this.custoUltimate = 0.0;
+        this.custoUltimate = 0;
     }
 
     public String getNome() {
@@ -30,7 +30,7 @@ public class Agente {
         return habilidadeUltimate;
     }
 
-    public double getCustoUltimate() {
+    public int getCustoUltimate() {
         return custoUltimate;
     }
 }
