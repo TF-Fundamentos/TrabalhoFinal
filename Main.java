@@ -7,7 +7,7 @@ public class Main{
         Random random = new Random();
 
         int opcao = 0;//Var. 1 switch
-        int opcaoCase2 = 0;//Var. 2 switch
+        int opcaoCase3 = 0;//Var. case 3 switch
         
         Equipe equipe []= new Equipe[2]; //numero temporario
         Jogador jogador[] = new Jogador[4];//numero temporario
@@ -15,22 +15,43 @@ public class Main{
         
         
         do{
-        System.out.println("\nGerenciamento de campeonato de Valorant");
-        System.out.println("1. cadasrar equipe");
-        System.out.println("2. ver estatisticas de jogador");
-        System.out.println("3. ver próxima partida");
-        System.out.println("4. sair");
+        System.out.println("\n======Gerenciamento de campeonato de Valorant======");
+        System.out.println("1. Cadasrar Equipe.");
+        System.out.println("2. Cadasrar Jogador.");
+        System.out.println("3. Ver estatisticas de jogador.");
+        System.out.println("4. Ver próxima partida.");
+        System.out.println("5. Sair.");
          opcao = scanner.nextInt();
             
             switch (opcao) {
             case 1:
+                //Esse if verifica se já existem 2 equipes cadastradas, caso sim, não permite cadastrar mais equipes.
+                if (equipe[1] != null){
+                    System.out.println("====Já existem 2 equipes cadastradas, não é possível cadastrar mais equipes.====");
+                  
+                }else
                 for (int i = 0; i < equipe.length; i++){
                 System.out.print("Digite o NOME e a TAG da equipe: ");
-                 equipe[i] = new Equipe(scanner.next(), scanner.next(), null);
+                System.out.println(" EX: NomeDaEquipe (de enter), TAG");
+                 equipe[i] = new Equipe(scanner.next(),(scanner.next()), null);
+
+                 equipe[i].TesteTag(equipe[i].getTag());
                 
                 System.out.println("Equipe " + equipe[i].getNome() + " cadastrada com sucesso!");
                 
-                //for que cadastra os jogadores, dentro de for equipe pq ccada equipe tem seus jogadores.
+                }//fim do for equipe
+                break;
+
+            case 2:
+                //for que cadastra os jogadores, 
+                if(equipe[1]== null){
+                    System.out.println("====Nenhuma equipe cadastrada, por favor cadastre uma equipe antes de cadastrar jogadores====");
+                    
+                }else{
+                System.out.println("Cadastro de jogadores para as equipes " + equipe[0].getNome() + " e " + equipe[1].getNome());
+                
+                for (int i = 0; i < equipe.length; i++){
+
                 for (int j = 0; j < (jogador.length)/2; j++){
                 System.out.println("Cadastro de jogadores para a equipe " + equipe[i].getNome());
                  int indice = (i *(jogador.length)/2 ) + j;
@@ -45,13 +66,14 @@ public class Main{
                
 
                 System.out.println("Jogador " + jogador[indice].getNickname() + " cadastrado com sucesso na equipe " + equipe[i].getNome());
+                }
                 }//fim do for jogaodor
-                }//fim do for equipe
+                }//fim do else
                 break;
 
-            case 2:
+            case 3:
                 
-                while (opcaoCase2 != 1){
+                while (opcaoCase3 != 1){
                     if (jogador[0] == null){
                         System.out.println("Nenhum jogador cadastrado, por favor cadastre um jogador para acessar as estatísticas.");
                         break;
@@ -72,9 +94,9 @@ public class Main{
 
                 System.out.println("1. " + "Sair.");
                 System.out.println("2. " + "Ver estatísticas de outro jogador.");
-                opcaoCase2 = scanner.nextInt();
+                opcaoCase3 = scanner.nextInt();
 
-                switch (opcaoCase2) {
+                switch (opcaoCase3) {
                     case 1: 
                     
                         System.out.println("Saindo...");
@@ -93,11 +115,11 @@ public class Main{
                 
                 break;
 
-            case 3:
+            case 4:
                 System.out.println("Ver próxima partida");
                 break;
 
-            case 4:
+            case 5:
                 System.out.println("Sair");
                 break;
 
@@ -107,7 +129,7 @@ public class Main{
 
         }
             
-        }while(opcao!= 4);
+        }while(opcao!= 5);
         scanner.close();
         random.doubles();
         
