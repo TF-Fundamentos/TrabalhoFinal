@@ -134,5 +134,29 @@ public class Main{
         random.doubles();
         
     }
+
+//Novo metodo para escolher o Agente + Variável para lembrar qual foi a última função impressa
+public static int escolherAgente(Scanner scanner, Agente[] agentes) {
+    String funcaoAtual = "";
+
+    //Menu (imprime cada agente na tela)
+    for (int i = 0; i < agentes.length; i++) {
+        if (!agentes[i].getFuncao().equals(funcaoAtual)) {
+            funcaoAtual = agentes[i].getFuncao();
+            System.out.println("\n--- " + funcaoAtual + "s ---");
+        }
+        //Imprime o número e o nome do agente        
+        System.out.println((i + 1) + " - " + agentes[i].getNome());
+    }
+        System.out.print("\nEscolha o número do agente: ");
+        int escolha = scanner.nextInt();
+
+        while (escolha < 1 || escolha > agentes.length) {
+            System.out.print("Opção inválida! Escolha um número entre 1 e " + agentes.length + ": ");
+            escolha = scanner.nextInt();
+        }
+
+        return escolha - 1;
+    }
 }
 
