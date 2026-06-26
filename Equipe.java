@@ -1,3 +1,5 @@
+import java.util.jar.JarInputStream;
+
 public class Equipe {
     private String nome;
     private String tag;
@@ -8,7 +10,7 @@ public class Equipe {
     public Equipe(String nome, String tag) {
         this.nome = nome;
         this.tag = tag;
-        this.jogadores = new jogadores[5];
+        this.jogadores = new Jogador[5];
         this.quantidadeJogadores = 0;
     }
 
