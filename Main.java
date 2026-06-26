@@ -20,7 +20,7 @@ public class Main{
         System.out.println("2. Listar Equipe.");
         System.out.println("3. Editar Equipe.");
         System.out.println("4. Buscar Equipe.");
-        System.out.println("5. Cadasrar Jogador.");
+        System.out.println("5. Cadastrar Jogador.");
         System.out.println("6. Listar Jogador.");
         System.out.println("7. Editar Jogador.");
         System.out.println("8. Buscar Jogador.");
