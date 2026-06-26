@@ -12,8 +12,7 @@ public class Main{
         Equipe equipe []= new Equipe[2]; //numero temporario
         Jogador jogador[] = new Jogador[4];//numero temporario
        
-        
-        
+
         do{
         //Menu principal do programa
         System.out.println("\n======Gerenciamento de campeonato de Valorant======");
@@ -30,14 +29,13 @@ public class Main{
         System.out.println("11. Sair.");
 
 
-
-
          opcao = scanner.nextInt();
             
-            switch (opcao) {
-            case 1:
 
-                //Esse if verifica se já existem 2 equipes cadastradas, caso sim, não permite cadastrar mais equipes.
+            switch (opcao) {
+
+            //Esse if verifica se já existem 2 equipes cadastradas, caso sim, não permite cadastrar mais equipes.
+            case 1:
                 if (equipe[1] != null){
                     System.out.println("====Já existem 2 equipes cadastradas, não é possível cadastrar mais equipes.====");
                   
@@ -52,20 +50,27 @@ public class Main{
                 }//fim do for equipe
                 break;
             
+
+            //Listar equipe, mostrar todas as equipes cadastradas.    
             case 2:
-            //Listar equipe, mostrar todas as equipes cadastradas.
+            
             break;
 
+
+            //Editar equipe. Edita nome, TAG, Jogadores[]        
             case 3:
-            //Editar equipe. Edita nome, TAG, Jogadores[]
+            
             break;
 
-            case 4:
+
             //Buscar equipe. Buscar equipe por nome (Especifica), exibe informações da equipe
+            case 4:
+            
             break;
 
-            case 5:
-                //for que cadastra os jogadores, 
+
+            //Cadastrar os jogadores + Escolher agente do jogador
+            case 5: 
                 if(equipe[1]== null){
                     System.out.println("====Nenhuma equipe cadastrada, por favor cadastre uma equipe antes de cadastrar jogadores====");
                     
@@ -96,20 +101,27 @@ public class Main{
                 }//fim do else
                 break;
             
+
+            // Mostrar Jogadores cadastrados. Mostrar Nickname, Agente, equipe pertencente.    
             case 6:
-            // Mostrar Jogadores cadastrados. Mostrar Nickname, Agente, equipe pertencente.
+            
             break;
 
-            case 7:
+
             //Editar jogadores. Permite editar dados como nickname, equipe, e agente.
+            case 7:
+            
             break;
 
-            case 8:
+
             //Buscar Jogador. Mostrar Nickname, Agente, equipe pertencente.
+            case 8:
+            
             break;
 
-            case 9:
-            // Ver as estátisticas de todos os jogadores.    
+
+            // Ver as estátisticas de todos os jogadores.
+            case 9:    
                 while (opcaoCase3 != 1){
                     if (jogador[0] == null){
                         System.out.println("Nenhum jogador cadastrado, por favor cadastre um jogador para acessar as estatísticas.");
@@ -151,8 +163,10 @@ public class Main{
             }
              break;
 
+
+            //Gerar equipes balanceadas. 
             case 10:
-            //Gerar equipes balanceadas.
+            
             break; 
 
 
@@ -162,15 +176,13 @@ public class Main{
 
             default:
                 System.out.println("Opção inválida");
-            
-
         }
             
-        }while(opcao!= 5);
+        } while(opcao!= 5);
         scanner.close();
         random.doubles();
-        
     }
+
 
 //Novo metodo para escolher o Agente + Variável para lembrar qual foi a última função impressa
 public static int escolherAgente(Scanner scanner, Agente[] agentes) {
