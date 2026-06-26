@@ -20,7 +20,8 @@ public class Main{
         System.out.println("2. Cadasrar Jogador.");
         System.out.println("3. Ver estatisticas de jogador.");
         System.out.println("4. Ver próxima partida.");
-        System.out.println("5. Sair.");
+        System.out.println("5. Ver equipes cadastradas.");
+        System.out.println("6. Sair.");
          opcao = scanner.nextInt();
             
             switch (opcao) {
@@ -31,11 +32,13 @@ public class Main{
                   
                 }else
                 for (int i = 0; i < equipe.length; i++){
-                System.out.print("Digite o NOME e a TAG da equipe: ");
-                System.out.println(" EX: NomeDaEquipe (de enter), TAG");
-                 equipe[i] = new Equipe(scanner.next(),(scanner.next()), null);
-
-                 equipe[i].TesteTag(equipe[i].getTag());
+                System.out.print("Digite o NOME da equipe: ");
+                System.out.println(" EX: Nome Da Equipe: ");
+                 equipe[i] = new Equipe(scanner.next(),null, null);
+                
+                System.out.print("Digite a TAG da equipe: ");
+                System.out.println(" EX: NomeDaEquipe (de enter)");
+                 equipe[i] = new Equipe(equipe[i].getNome(),scanner.next(), null);
                 
                 System.out.println("Equipe " + equipe[i].getNome() + " cadastrada com sucesso!");
                 
@@ -43,27 +46,33 @@ public class Main{
                 break;
 
             case 2:
+
                 //for que cadastra os jogadores, 
                 if(equipe[1]== null){
                     System.out.println("====Nenhuma equipe cadastrada, por favor cadastre uma equipe antes de cadastrar jogadores====");
                     
                 }else{
-                System.out.println("Cadastro de jogadores para as equipes " + equipe[0].getNome() + " e " + equipe[1].getNome());
+                System.out.println("\nCadastro de jogadores para as equipes " + equipe[0].getNome() + " e " + equipe[1].getNome());
                 
                 for (int i = 0; i < equipe.length; i++){
 
                 for (int j = 0; j < (jogador.length)/2; j++){
-                System.out.println("Cadastro de jogadores para a equipe " + equipe[i].getNome());
+    
+                System.out.println("\nCadastro de jogadores para a equipe " + equipe[i].getNome());
                  int indice = (i *(jogador.length)/2 ) + j;
+                
+                  
+                System.out.println("Digite o nickname do jogador: ");
+                    jogador [indice] = new Jogador(scanner.next(), null, 0, 0, 0, 0.0);
+                
+                 System.out.println("Digite o agente do jogador: ");
+                     jogador [indice] = new Jogador(jogador[indice].getNickname(), scanner.next(), 0, 0, 0, 0.0);
+                
 
-                System.out.println("Digite o nickname e o agente do jogador: ");
-                    jogador [indice] = new Jogador(scanner.next(), scanner.next(), 0, 0, 0, 0.0);
-               
 
                 //Possivelmente temporario, para testar o cadastro de kills, mortes e assistências. E funcionar o ToString do jogador[].    
                 System.out.printf("Digite o número de kills, mortes e assistências do jogador %s: ", jogador[indice].getNickname());
                      jogador[indice] = new Jogador(jogador[indice].getNickname(), jogador[indice].getAgente(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), 0.0);
-               
 
                 System.out.println("Jogador " + jogador[indice].getNickname() + " cadastrado com sucesso na equipe " + equipe[i].getNome());
                 }
@@ -82,18 +91,26 @@ public class Main{
                     
                 //aqui vai agregar um número para cada jogador, para o usuário escolher qual jogador ele quer ver as estatísticas.
                      for (int i = 0; i < jogador.length; i++){
-                    System.out.println("Número: " + i + " - " + jogador[i].getNickname());
+                    System.out.println("Número: " + (i+1) + " - " + jogador[i].getNickname());
                    }
 
                 //Escolhe o número do jogador para ver as estatísticas
                     System.out.println("\nEscolha o número do jogador para ver suas estatísticas: "); 
                     int i= scanner.nextInt();
 
-                    System.out.println(jogador[i].toString());
+                   if(i<1 || i>=jogador.length){
+                    
+                    System.out.println("Número inválido, por favor escolha um número entre 0 e " + (jogador.length - 1));
+                    continue;
+                    ///pra evitar que numeros errados sejam digitados, e quebrar o programa, o continue faz com que o while continue, e peça para digitar novamente.
+                    //continua o while, para não quebrar o programa.
+                   }
+                    System.out.println(jogador[(i-1)].toString());
                 
 
-                System.out.println("1. " + "Sair.");
+                System.out.println("\n1. " + "Sair.");
                 System.out.println("2. " + "Ver estatísticas de outro jogador.");
+                 
                 opcaoCase3 = scanner.nextInt();
 
                 switch (opcaoCase3) {
@@ -105,11 +122,12 @@ public class Main{
                     case 2:
                         System.out.println("Carregando...");
                         break;
+
+                    default:
+                         System.out.println("Opção inválida! Por favor, escolha 1 ou 2.");
+                         continue;
                     
-
-
-                default:
-                    System.out.println(")Opção inválida");
+                        
                 }
             }
                 
@@ -120,7 +138,18 @@ public class Main{
                 break;
 
             case 5:
-                System.out.println("Sair");
+                System.out.println("Equipes cadastradas:");
+                if(equipe[1] == null){
+                    System.out.println("Nenhuma equipe cadastrada. Por favor, cadastre uma equipe antes de visualizar as equipes cadastradas.");
+                 }else{
+                    for (int i=0; i<equipe.length; i++){
+                        System.out.println("Equipe " + (i + 1) + ": " + equipe[i].getNome() + " - TAG: " + equipe[i].getTag());
+                    }
+                 }
+                  break;
+
+            case 6:
+                System.out.println("Saindo do programa...");
                 break;
 
             default:
@@ -129,11 +158,17 @@ public class Main{
 
         }
             
-        }while(opcao!= 5);
+        }while(opcao!= 6);
         scanner.close();
         random.doubles();
         
     }
+
+
+
+
+
+
 
 //Novo metodo para escolher o Agente + Variável para lembrar qual foi a última função impressa
 public static int escolherAgente(Scanner scanner, Agente[] agentes) {
