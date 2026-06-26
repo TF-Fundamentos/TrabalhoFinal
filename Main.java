@@ -15,16 +15,28 @@ public class Main{
         
         
         do{
+        //Menu principal do programa
         System.out.println("\n======Gerenciamento de campeonato de Valorant======");
         System.out.println("1. Cadasrar Equipe.");
-        System.out.println("2. Cadasrar Jogador.");
-        System.out.println("3. Ver estatisticas de jogador.");
-        System.out.println("4. Ver próxima partida.");
-        System.out.println("5. Sair.");
+        System.out.println("2. Listar Equipe.");
+        System.out.println("3. Editar Equipe.");
+        System.out.println("4. Buscar Equipe.");
+        System.out.println("5. Cadasrar Jogador.");
+        System.out.println("6. Listar Jogador.");
+        System.out.println("7. Editar Jogador.");
+        System.out.println("8. Buscar Jogador.");
+        System.out.println("9. Exibir estatisticas de jogador.");
+        System.out.println("10. Gerar equipes balanceadas.");
+        System.out.println("11. Sair.");
+
+
+
+
          opcao = scanner.nextInt();
             
             switch (opcao) {
             case 1:
+
                 //Esse if verifica se já existem 2 equipes cadastradas, caso sim, não permite cadastrar mais equipes.
                 if (equipe[1] != null){
                     System.out.println("====Já existem 2 equipes cadastradas, não é possível cadastrar mais equipes.====");
@@ -34,15 +46,25 @@ public class Main{
                 System.out.print("Digite o NOME e a TAG da equipe: ");
                 System.out.println(" EX: NomeDaEquipe (de enter), TAG");
                  equipe[i] = new Equipe(scanner.next(),(scanner.next()), null);
-
-                 equipe[i].TesteTag(equipe[i].getTag());
                 
                 System.out.println("Equipe " + equipe[i].getNome() + " cadastrada com sucesso!");
                 
                 }//fim do for equipe
                 break;
-
+            
             case 2:
+            //Listar equipe, mostrar todas as equipes cadastradas.
+            break;
+
+            case 3:
+            //Editar equipe. Edita nome, TAG, Jogadores[]
+            break;
+
+            case 4:
+            //Buscar equipe. Buscar equipe por nome (Especifica), exibe informações da equipe
+            break;
+
+            case 5:
                 //for que cadastra os jogadores, 
                 if(equipe[1]== null){
                     System.out.println("====Nenhuma equipe cadastrada, por favor cadastre uma equipe antes de cadastrar jogadores====");
@@ -56,9 +78,12 @@ public class Main{
                 System.out.println("Cadastro de jogadores para a equipe " + equipe[i].getNome());
                  int indice = (i *(jogador.length)/2 ) + j;
 
-                System.out.println("Digite o nickname e o agente do jogador: ");
-                    jogador [indice] = new Jogador(scanner.next(), scanner.next(), 0, 0, 0, 0.0);
-               
+                System.out.println("Digite o nickname do jogador: ");
+                    jogador [indice] = new Jogador(scanner.next(),null, 0, 0, 0, 0.0);
+                
+                System.out.println("Digite o agente do jogador: ");
+                  //falta fazer.
+                
 
                 //Possivelmente temporario, para testar o cadastro de kills, mortes e assistências. E funcionar o ToString do jogador[].    
                 System.out.printf("Digite o número de kills, mortes e assistências do jogador %s: ", jogador[indice].getNickname());
@@ -70,9 +95,21 @@ public class Main{
                 }//fim do for jogaodor
                 }//fim do else
                 break;
+            
+            case 6:
+            // Mostrar Jogadores cadastrados. Mostrar Nickname, Agente, equipe pertencente.
+            break;
 
-            case 3:
-                
+            case 7:
+            //Editar jogadores. Permite editar dados como nickname, equipe, e agente.
+            break;
+
+            case 8:
+            //Buscar Jogador. Mostrar Nickname, Agente, equipe pertencente.
+            break;
+
+            case 9:
+            // Ver as estátisticas de todos os jogadores.    
                 while (opcaoCase3 != 1){
                     if (jogador[0] == null){
                         System.out.println("Nenhum jogador cadastrado, por favor cadastre um jogador para acessar as estatísticas.");
@@ -112,14 +149,14 @@ public class Main{
                     System.out.println(")Opção inválida");
                 }
             }
-                
-                break;
+             break;
 
-            case 4:
-                System.out.println("Ver próxima partida");
-                break;
+            case 10:
+            //Gerar equipes balanceadas.
+            break; 
 
-            case 5:
+
+            case 11:
                 System.out.println("Sair");
                 break;
 
