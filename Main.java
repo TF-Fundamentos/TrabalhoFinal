@@ -104,7 +104,34 @@ public class Main{
 
             //Editar jogadores. Permite editar dados como nickname, equipe, e agente.
             case 7:
-            
+                if (equipe[1] == null) {
+                    System.out.println("===Nenhum equipe cadastrada, por favor cadastre as 2 equipes antes de editar jogadores===");
+                } else {
+                    System.out.println("Digite o nickname do jogador que deseja editar: ");
+                    String nicknameBusca = scanner.next();
+
+                    Jogador jogadorEncontrado = equipe[0].buscarJogadorPorNickname(nicknameBusca);
+                    if (jogadorEncontrado == null) {
+                        jogadorEncontrado = equipe[1].buscarJogadorPorNickname(nicknameBusca);
+                    }
+                    
+                    if (jogadorEncontrado == null) {
+                        System.out.println("Jogador não encontrado.");
+                    } else {
+                        System.out.println("Jogador encontrado: " + jogadorEcontrado.toString());
+
+                        System.out.println("Digite o novo nickname do jogador: ");
+                        String novoNickname = scanner.next();
+                        jogadorEncontrado.setNickname(novoNickname);
+
+                        Agente[] agentes = Agente.listaDeAgentes();
+                        System.out.println("Escolha o novo agente do jogador: ");
+                        int indiceAgente = escolherAgente(scanner, agentes);
+                        jogadorEncontrado.setAgente(agentes[indiceAgente]);
+
+                        System.out.println("Jogador atualizado com sucesso! " + jogadorEncontrado.toString()):
+                    }
+                }
             break;
 
 

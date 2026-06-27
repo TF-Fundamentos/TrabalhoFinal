@@ -46,4 +46,13 @@ public class Equipe {
         quantidadeJogadores++;
         return true;
     }
+
+    public Jogador buscarJogadorPorNickname(String nickname) {
+    for (int i = 0; i < quantidadeJogadores; i++) {
+        if (jogadores[i].getNickname().equalsIgnoreCase(nickname)) {
+            return jogadores[i];
+        }
+    }
+    return null;
+    }
 }
