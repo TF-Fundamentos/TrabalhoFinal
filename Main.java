@@ -16,17 +16,12 @@ public class Main{
         do{
         //Menu principal do programa
         System.out.println("\n======Gerenciamento de campeonato de Valorant======");
-        System.out.println("1. Cadasrar Equipe.");
-        System.out.println("2. Listar Equipe.");
-        System.out.println("3. Editar Equipe.");
-        System.out.println("4. Buscar Equipe.");
-        System.out.println("5. Cadastrar Jogador.");
+        System.out.print("1. Cadasrar Equipe.");         System.out.println("          7. Editar Jogador.");
+        System.out.print("2. Listar Equipe.");           System.out.println("            8. Buscar Jogador.");
+        System.out.print("3. Editar Equipe.");           System.out.println("            9. Exibir estatisticas de jogador.");
+        System.out.print("4. Buscar Equipe.");           System.out.println("            10. Gerar equipes balanceadas.");
+        System.out.print("5. Cadastrar Jogador.");       System.out.println("        11. Sair.");
         System.out.println("6. Listar Jogador.");
-        System.out.println("7. Editar Jogador.");
-        System.out.println("8. Buscar Jogador.");
-        System.out.println("9. Exibir estatisticas de jogador.");
-        System.out.println("10. Gerar equipes balanceadas.");
-        System.out.println("11. Sair.");
 
 
          opcao = scanner.nextInt();
@@ -53,6 +48,16 @@ public class Main{
 
             //Listar equipe, mostrar todas as equipes cadastradas.    
             case 2:
+                if (equipe[1]==null){
+                    System.out.println("Nenhuma equipe cadastrada. Por favor cadastre duas equipe antes.");
+
+                }else{
+                int i;
+                for(i=0; i<equipe.length; i++){
+                    System.out.println("Equipe: " + equipe[i].getNome());
+                }
+                
+                }
             
             break;
 
@@ -106,6 +111,7 @@ public class Main{
             case 7:
                 if (equipe[1] == null) {
                     System.out.println("===Nenhum equipe cadastrada, por favor cadastre as 2 equipes antes de editar jogadores===");
+                //aqui precisa colocar um else if para caso não aja jogadores cadasatrados
                 } else {
                     System.out.println("Digite o nickname do jogador que deseja editar: ");
                     String nicknameBusca = scanner.next();
@@ -139,6 +145,7 @@ public class Main{
             case 8:
                 if (equipe[1] == null) {
                     System.out.println("===Nenhuma equipe cadastrada, por favor cadastre as 2 equipes antes de buscar jogadores===");
+                //aqui precisa colocar um else if para caso não aja jogadores cadasatrados
                 } else {
                     System.out.println("Digite o nickname do jogador que deseja buscar: ");
                     String nicknameBuscado = scanner.next();
