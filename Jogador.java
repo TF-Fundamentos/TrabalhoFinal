@@ -7,21 +7,18 @@ public class Jogador{
     private int assistencias;
     private double kda;
 
-    public Jogador(String nickname, Agente agente, int kills, int mortes, int assistencias, double kda) {
-
+    public Jogador(String nickname, Agente agente, int kills, int mortes, int assistencias) {
         this.nickname = nickname;
         this.agente = agente;
         this.kills = kills;
         this.mortes = mortes;
         this.assistencias = assistencias;
-        this.kda = (kills+assistencias)/(mortes+1);
-        //aqui já define o cálculo para kda, somando 1 para mortes, assim evitando divisao p/0
+        calcularKDA();;
     }
 
     public Jogador(){
-
         this.nickname = "";
-        this.agente = new Agente(null, null, null, 0);
+        this.agente = new Agente();
         this.kills = 0;
         this.mortes = 0;
         this.assistencias = 0;
@@ -52,8 +49,13 @@ public class Jogador{
         return kda;
     }
 
+
+     public void calcularKda() {
+        this.kda = (double)(kills + assistencias) / (mortes + 1);
+    }
+
     @Override
     public String toString(){
-        return "Nickname: " + nickname + ", Agente: " + agente + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
+        return "Nickname: " + nickname + ", Agente: " + agente.getNome() + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
     }
 }
