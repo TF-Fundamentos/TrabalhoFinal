@@ -13,7 +13,7 @@ public class Jogador{
         this.kills = kills;
         this.mortes = mortes;
         this.assistencias = assistencias;
-        calcularKda();;
+        calcularKda();
     }
 
     public Jogador(){
@@ -50,12 +50,20 @@ public class Jogador{
     }
 
 
-     public void calcularKda() {
+    public void calcularKda() {
         this.kda = (double)(kills + assistencias) / (mortes + 1);
     }
 
     @Override
     public String toString(){
         return "Nickname: " + nickname + ", Agente: " + agente.getNome() + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
+    }
+
+    public void setNickname(String nickname) {
+    this.nickname = nickname;
+    }
+
+    public void setAgente(Agente agente) {
+    this.agente = agente;
     }
 }
