@@ -13,7 +13,7 @@ public class Jogador{
         this.kills = kills;
         this.mortes = mortes;
         this.assistencias = assistencias;
-        calcularKDA();;
+        calcularKda();;
     }
 
     public Jogador(){

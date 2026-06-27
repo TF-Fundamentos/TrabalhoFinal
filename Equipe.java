@@ -1,5 +1,3 @@
-import java.util.jar.JarInputStream;
-
 public class Equipe {
     private String nome;
     private String tag;
