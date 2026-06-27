@@ -118,7 +118,7 @@ public class Main{
                     if (jogadorEncontrado == null) {
                         System.out.println("Jogador não encontrado.");
                     } else {
-                        System.out.println("Jogador encontrado: " + jogadorEcontrado.toString());
+                        System.out.println("Jogador encontrado: " + jogadorEncontrado.toString());
 
                         System.out.println("Digite o novo nickname do jogador: ");
                         String novoNickname = scanner.next();
@@ -129,7 +129,7 @@ public class Main{
                         int indiceAgente = escolherAgente(scanner, agentes);
                         jogadorEncontrado.setAgente(agentes[indiceAgente]);
 
-                        System.out.println("Jogador atualizado com sucesso! " + jogadorEncontrado.toString()):
+                        System.out.println("Jogador atualizado com sucesso! " + jogadorEncontrado.toString());
                     }
                 }
             break;

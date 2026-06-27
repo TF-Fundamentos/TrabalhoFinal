@@ -59,6 +59,7 @@ public class Jogador{
         return "Nickname: " + nickname + ", Agente: " + agente.getNome() + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
     }
 
+    // Setters utilizados no Case 7
     public void setNickname(String nickname) {
     this.nickname = nickname;
     }
