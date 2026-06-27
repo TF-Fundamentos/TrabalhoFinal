@@ -137,7 +137,28 @@ public class Main{
 
             //Buscar Jogador. Mostrar Nickname, Agente, equipe pertencente.
             case 8:
-            
+                if (equipe[1] == null) {
+                    System.out.println("===Nenhuma equipe cadastrada, por favor cadastre as 2 equipes antes de buscar jogadores===");
+                } else {
+                    System.out.println("Digite o nickname do jogador que deseja buscar: ");
+                    String nicknameBuscado = scanner.next();
+
+                    Jogador jogadorBuscado = equipe[0].buscarJogadorPorNickname(nicknameBuscado);
+                    String nomeEquipeEncontrada = equipe[0].getNome();
+
+                    if (jogadorBuscado == null) {
+                        jogadorBuscado = equipe[1].buscarJogadorPorNickname(nicknameBuscado);
+                        nomeEquipeEncontrada = equipe[1].getNome();
+                    }
+
+                    if (jogadorBuscado == null) {
+                        System.out.println("Jogador não encontrado.");
+                    } else {
+                        System.out.println("\n--- Jogador encontrado ---");
+                        System.out.println("Equipe: " + nomeEquipeEncontrada);
+                        System.out.println(jogadorBuscado.toString());
+                    }
+                }
             break;
 
 
