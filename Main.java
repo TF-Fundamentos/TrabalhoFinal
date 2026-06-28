@@ -111,7 +111,8 @@ public class Main{
             case 7:
                 if (equipe[1] == null) {
                     System.out.println("===Nenhum equipe cadastrada, por favor cadastre as 2 equipes antes de editar jogadores===");
-                //aqui precisa colocar um else if para caso não aja jogadores cadasatrados
+                } else if (equipe[0].getQuantidadeJogadores() == 0 && equipe[1].getQuantidadeJogadores() == 0) {
+                    System.out.println("===Nenhum jogador cadastrado ainda. Cadastre jogadores antes de editar===");
                 } else {
                     System.out.println("Digite o nickname do jogador que deseja editar: ");
                     String nicknameBusca = scanner.next();
@@ -145,7 +146,9 @@ public class Main{
             case 8:
                 if (equipe[1] == null) {
                     System.out.println("===Nenhuma equipe cadastrada, por favor cadastre as 2 equipes antes de buscar jogadores===");
-                //aqui precisa colocar um else if para caso não aja jogadores cadasatrados
+
+                } else if (equipe[0].getQuantidadeJogadores() == 0 && equipe[1].getQuantidadeJogadores() == 0) {
+                    System.out.println("===Nenhum jogador cadastrado ainda. Cadastre jogadores antes de buscar===");
                 } else {
                     System.out.println("Digite o nickname do jogador que deseja buscar: ");
                     String nicknameBuscado = scanner.next();
