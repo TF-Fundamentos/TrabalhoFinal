@@ -66,15 +66,18 @@ public class Equipe {
 
     @Override
     public String toString() {
-        System.out.println("Nome da equipe: " + nome + "["+ tag +"]");
+        String tela = ("Nome da equipe: " + nome + "["+ tag +"]");
+        tela += "/nQuantidade de jogadores: " + quantidadeJogadores;
         if (quantidadeJogadores == 0) {
-            System.out.println("Nenhum jogador cadastrado na equipe.");
+            tela += (" Nenhum jogador cadastrado na equipe.");
         } else {
-            System.out.println("Jogadores da equipe:");
+            tela += ("Jogadores da equipe:");
             for (int i = 0; i < quantidadeJogadores; i++) {
-                System.out.println(jogadores[i]);
+                tela += (jogadores[i].getNickname() + " - " + jogadores[i].getAgente().getNome() + "\n");
             }
+            
         }
 
-   
+        return tela;
+    }
 }

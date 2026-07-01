@@ -36,7 +36,7 @@ public class Main{
                     System.out.println("====Já existem 2 equipes cadastradas, não é possível cadastrar mais equipes.====");
                   
                 }else
-                for ( i = 0; i < equipe.length; i++){));
+                for ( i = 0; i < equipe.length; i++){
                 System.out.print("Digite o NOME e a TAG da equipe: ");
                 System.out.println(" EX: NomeDaEquipe (de enter), TAG");
                  equipe[i] = new Equipe(scanner.next(), scanner.next(), null);
@@ -55,7 +55,7 @@ public class Main{
                 }else{
                 
                 for(i=0; i<equipe.length; i++){
-                    System.out.println("Equipe: " + equipe[i].getNome());
+                    System.out.println("Equipe: " + equipe[i].toString());
 
                 }
                 System.out.println("Digite o nome da equipe que deseja ver as estatísticas: ");
