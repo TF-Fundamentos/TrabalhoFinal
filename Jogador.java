@@ -54,11 +54,6 @@ public class Jogador{
         this.kda = (double)(kills + assistencias) / (mortes + 1);
     }
 
-    @Override
-    public String toString(){
-        return "Nickname: " + nickname + ", Agente: " + agente.getNome() + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
-    }
-
     // Setters utilizados no Case 7
     public void setNickname(String nickname) {
     this.nickname = nickname;
@@ -66,5 +61,10 @@ public class Jogador{
 
     public void setAgente(Agente agente) {
     this.agente = agente;
+    }
+
+     @Override
+    public String toString(){
+        return "Nickname: " + nickname + ", Agente: " + agente.getNome() + ", Kills: " +  kills + ", Mortes: " + mortes + ", Assistencia: "  + assistencias + ", KDA: " + kda;
     }
 }

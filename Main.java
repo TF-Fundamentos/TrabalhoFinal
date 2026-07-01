@@ -8,8 +8,9 @@ public class Main{
 
         int opcao = 0;//Var. 1 switch
         int opcaoCase3 = 0;//Var. case 3 switch
-        
-        Equipe equipe []= new Equipe[2]; //numero temporario
+        int i;
+
+        Equipe equipe []= new Equipe[2]; 
         Jogador jogador[] = new Jogador[4];//numero temporario
        
 
@@ -35,10 +36,10 @@ public class Main{
                     System.out.println("====Já existem 2 equipes cadastradas, não é possível cadastrar mais equipes.====");
                   
                 }else
-                for (int i = 0; i < equipe.length; i++){
+                for ( i = 0; i < equipe.length; i++){));
                 System.out.print("Digite o NOME e a TAG da equipe: ");
                 System.out.println(" EX: NomeDaEquipe (de enter), TAG");
-                 equipe[i] = new Equipe(scanner.next(), scanner.next());
+                 equipe[i] = new Equipe(scanner.next(), scanner.next(), null);
                 
                 System.out.println("Equipe " + equipe[i].getNome() + " cadastrada com sucesso!");
                 
@@ -52,11 +53,26 @@ public class Main{
                     System.out.println("Nenhuma equipe cadastrada. Por favor cadastre duas equipe antes.");
 
                 }else{
-                int i;
+                
                 for(i=0; i<equipe.length; i++){
                     System.out.println("Equipe: " + equipe[i].getNome());
+
                 }
-                
+                System.out.println("Digite o nome da equipe que deseja ver as estatísticas: ");
+                String nomeEquipe = scanner.next();
+
+                Equipe equipeEncontrada = buscaEquipeNome(equipe, nomeEquipe);
+                if (equipeEncontrada != null) {
+
+                    System.out.println("Equipe encontrada: " + equipeEncontrada.getNome());
+
+                } else {
+                    System.out.println("Equipe não encontrada.");
+                }
+
+                //*Implantar posteriormente pra ver 
+                // estátisticas da equipe escolhida
+                // */
                 }
             
             break;
@@ -64,9 +80,59 @@ public class Main{
 
             //Editar equipe. Edita nome, TAG, Jogadores[]        
             case 3:
+                if (equipe[1]==null){
+                    System.out.println("Nenhuma Equipe cadastrada. Por favor cadastre uma equipe para que possa edita-lá.");
+                }else{
+                    System.out.println("Equipes cadastradas: ");
+                    for (i=0; i<equipe.length; i++){
+                        System.out.println(" Equipe: "+equipe[i].getNome());
+                    
+                    }
+                
+                 System.out.println("Digite o nome da Equipe que deseja editar: ");
+                 scanner.nextLine();
+                String equipeProcurada = scanner.nextLine();
+
+                Equipe equipeEncontrada = buscaEquipeNome(equipe, equipeProcurada);
+                    
+                if(equipeEncontrada == null) {
+                    System.out.println("Equipe não encontrada. Por favor, verifique o nome digitado e tente novamente.");
+                }else {
+                    System.out.println("Equipe  encontrada: " + equipeEncontrada.getNome());
+
+                    System.out.println("Digite o novo nome da equipe: ");
+                    String novoNome = scanner.nextLine();
+
+                    System.out.println("Digite a nova TAG da equipe: ");
+                    String novaTag = scanner.nextLine();
+
+                    if (novoNome.isEmpty() || novaTag.isEmpty()) {
+                        System.out.println("O nome e/ou a TAG não podem ficar em branco. Alterações canceladas!");
+                    } 
+                    else {
+                    System.out.println("Deseja alterar o nome e a TAG da equipe " + equipeEncontrada.getNome() + "? (S/N)");
+                    System.out.println("Novo nome: " + novoNome);
+                    System.out.println("Nova TAG: " + novaTag);
+                    String confirmacao = scanner.nextLine();
+
+
+                    if (confirmacao.equalsIgnoreCase("S")) {
+                        equipeEncontrada.setNome(novoNome);
+                        equipeEncontrada.setTag(novaTag);
+                        System.out.println("Equipe atualizada com sucesso!");
+                    } 
+                    else if (confirmacao.equalsIgnoreCase("N")) {
+                        System.out.println("Alterações canceladas.");
+                    }
+                     else {
+                        System.out.println("Opção inválida. Alterações canceladas.");
+                    }
+                }
+                }
+                 
             
             break;
-
+            }
 
             //Buscar equipe. Buscar equipe por nome (Especifica), exibe informações da equipe
             case 4:
@@ -81,7 +147,7 @@ public class Main{
                 } else {
                     Agente[] agentes = Agente.listaDeAgentes();
                     
-                for (int i = 0; i < equipe.length; i++){
+                for ( i = 0; i < equipe.length; i++){
                     System.out.println("\nCadastro de jogadores para a equipe " + equipe[i].getNome());
 
                     for (int j = 0; j < equipe[i].getJogadores().length; j++) {
@@ -179,13 +245,13 @@ public class Main{
                 System.out.println("\nJogadores Disponíveis: ");
                     
                 //aqui vai agregar um número para cada jogador, para o usuário escolher qual jogador ele quer ver as estatísticas.
-                     for (int i = 0; i < jogador.length; i++){
+                     for ( i = 0; i < jogador.length; i++){
                     System.out.println("Número: " + i + " - " + jogador[i].getNickname());
                    }
 
                 //Escolhe o número do jogador para ver as estatísticas
                     System.out.println("\nEscolha o número do jogador para ver suas estatísticas: "); 
-                    int i= scanner.nextInt();
+                     i= scanner.nextInt();
 
                     System.out.println(jogador[i].toString());
                 
@@ -220,7 +286,7 @@ public class Main{
 
 
             case 11:
-                System.out.println("Sair");
+                System.out.println("Saindo..");
                 break;
 
             default:
@@ -256,4 +322,43 @@ public static int escolherAgente(Scanner scanner, Agente[] agentes) {
 
         return escolha - 1;
     }
+
+
+      public static void CadastraJogador(Equipe[] equipe, Jogador[] jogadores){
+    Scanner sc= new Scanner(System.in);
+    
+        int j;
+        Jogador[] jogador= new Jogador[4];
+
+        if (equipe[1]==null){
+            System.out.println("Nenhuma equipe cadastrada. Cadastre uma antes de cadastrar Jogadores.");
+        }else 
+            for (j=0; j<equipe[j].getJogadores().length; j++){
+
+                System.out.println("Digite o nickname do jogador: ");
+                jogador[j]= new Jogador() ;
+                
+                
+
+                
+            }
+        
+            sc.close();
+        
+          
+    
+    }
+
+    
+     public static Equipe buscaEquipeNome(Equipe[] equipe, String nome){
+
+        for (int i=0; i<equipe.length; i++){
+        if(equipe[i] != null && equipe[i].getNome().equalsIgnoreCase(nome)){
+            System.out.println("Equipe " +equipe[i].getNome() +" encontrada com sucesso!");
+            return equipe[i];
+        }
+    } 
+     return null;
+    }
+  
 }

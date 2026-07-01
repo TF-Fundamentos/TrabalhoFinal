@@ -5,7 +5,7 @@ public class Equipe {
     private int quantidadeJogadores;
 
     //Construtor padrão (com parâmetros)
-    public Equipe(String nome, String tag) {
+    public Equipe(String nome, String tag, Jogador jogadores[]) {
         this.nome = nome;
         this.tag = tag;
         this.jogadores = new Jogador[5];
@@ -35,6 +35,14 @@ public class Equipe {
     public int getQuantidadeJogadores() {
         return quantidadeJogadores;
     }
+    
+    public void setNome(String nome){
+        this.nome= nome;
+    }
+
+    public void setTag(String tag){
+        this.tag= tag;
+    }
 
     //Adiciona um jogador no próximo espaço livre do vetor
     public boolean adicionarJogador(Jogador jogador) {
@@ -55,4 +63,18 @@ public class Equipe {
     }
     return null;
     }
+
+    @Override
+    public String toString() {
+        System.out.println("Nome da equipe: " + nome + "["+ tag +"]");
+        if (quantidadeJogadores == 0) {
+            System.out.println("Nenhum jogador cadastrado na equipe.");
+        } else {
+            System.out.println("Jogadores da equipe:");
+            for (int i = 0; i < quantidadeJogadores; i++) {
+                System.out.println(jogadores[i]);
+            }
+        }
+
+   
 }
